@@ -3,9 +3,9 @@ import Modal from "./Modal";
 import QuestionPopOp from "./QuestionPopOp";
 import type { ConfirmModalProps } from "../../types/popup";
 
-const ConfirmModal: React.FC<ConfirmModalProps> = ({ cancelHandler, isShown, question, title, yesHandler }) => {
+const ConfirmModal: React.FC<ConfirmModalProps> = ({ cancelHandler, isShown, question, title, yesHandler, onClose }) => {
   return (
-    <Modal isShown={isShown}>
+    <Modal isShown={isShown} onClose={onClose}>
       <QuestionPopOp cancelHandler={cancelHandler} yesHandler={yesHandler} question={question} title={title} />
     </Modal>
   );

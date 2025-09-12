@@ -10,11 +10,13 @@ export interface QuestionPopOpType {
 
 export interface ConfirmModalProps extends QuestionPopOpType {
   isShown: boolean;
+  onClose: () => void;
 }
 
 export interface FormModalProps {
   isShown: boolean;
   onSubmit: (data: Data) => void;
+  onClose: () => void;
 }
 
 export interface FormItemProps<T extends FieldValues> {
@@ -26,4 +28,10 @@ export interface FormItemProps<T extends FieldValues> {
   errors?: FieldErrors<T>;
   required: boolean;
   type: "text" | "number" | "checkBox";
+}
+
+export interface ModalProps {
+  children: React.ReactNode;
+  isShown: boolean;
+  onClose: () => void;
 }
