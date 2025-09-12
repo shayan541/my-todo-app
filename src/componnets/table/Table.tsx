@@ -2,13 +2,13 @@ import React from "react";
 import type { TableProps } from "../../types/table";
 import Row from "./Row";
 
-const Table: React.FC<TableProps> = ({ columns, data }) => {
+const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler }) => {
   return (
     <table className="w-full border-collapse table-fixed">
       <thead>
-        <tr>
+        <tr className="bg-[#b29b66] rounded">
           {columns.map((col) => (
-            <th key={col} className="border-b py-2 text-sm font-normal text-gray tracking-wider bg-red-200 text-left pl-4">
+            <th key={col} className="border-b py-2 text-sm font-normal text-gray tracking-wider  text-left pl-4 ">
               {col}
             </th>
           ))}
@@ -16,7 +16,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
       </thead>
       <tbody>
         {data.map((task) => (
-          <Row task={task} key={task.id} />
+          <Row task={task} key={task.id} deleteHandler={deleteHandler} editHandler={editHandler} />
         ))}
       </tbody>
     </table>

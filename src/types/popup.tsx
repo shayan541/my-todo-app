@@ -14,8 +14,10 @@ export interface ConfirmModalProps extends QuestionPopOpType {
 }
 
 export interface FormModalProps {
+  data?: Data;
   isShown: boolean;
   onSubmit: (data: Data) => void;
+  onEdit?: (data: Data) => void;
   onClose: () => void;
 }
 
@@ -27,7 +29,8 @@ export interface FormItemProps<T extends FieldValues> {
   register: UseFormRegister<T>;
   errors?: FieldErrors<T>;
   required: boolean;
-  type: "text" | "number" | "checkBox";
+  type: "text" | "number" | "checkbox";
+  value?: string | boolean;
 }
 
 export interface ModalProps {

@@ -1,6 +1,8 @@
 export interface TableProps {
   columns: string[];
   data: Data[];
+  editHandler: (id: number) => void;
+  deleteHandler: (id: number) => void;
 }
 export type Data = {
   id: number;
