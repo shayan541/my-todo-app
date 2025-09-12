@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const QuestionPopOp: React.FC<QuestionPopOpType> = ({ cancelHandler, question, title, yesHandler }) => {
   return (
-    <div className="bg-white rounded border shadow py-8 px-6">
+    <div className="bg-white rounded border border-gold-200 shadow py-8 px-6">
       <h2 className="font-bold">{title}</h2>
       <p className="mt-2">{question}</p>
       <div className="flex mt-2 gap-2">

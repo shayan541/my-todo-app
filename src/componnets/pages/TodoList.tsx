@@ -20,7 +20,6 @@ const TodoList = () => {
     setTasks((prev) => {
       const newId = prev.length > 0 ? Math.max(...prev.map((t) => Number(t.id))) + 1 : 1;
       const newTasks = [...prev, { ...data, id: newId }];
-      console.log(newTasks);
       localStorage.setItem("tasks", JSON.stringify(newTasks));
       return newTasks;
     });
@@ -51,12 +50,14 @@ const TodoList = () => {
   };
 
   return (
-    <div>
-      <h1 className="uppercase">to do list</h1>
-      <div className="flex flex-row-reverse">
-        <Button onClick={() => setShowFormModal(true)}> add new task</Button>
+    <div className="mt-8">
+      <div className="flex justify-between flex-wrap items-center font-bold">
+        <h2 className="uppercase">to do list</h2>
+        <div className="flex flex-row-reverse">
+          <Button onClick={() => setShowFormModal(true)}> add new task</Button>
+        </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-12">
         <Table
           columns={columns}
           data={tasks}

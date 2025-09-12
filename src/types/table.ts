@@ -3,6 +3,7 @@ export interface TableProps {
   data: Data[];
   editHandler: (id: number) => void;
   deleteHandler: (id: number) => void;
+  rowsPerPageOptions?: number[];
 }
 export type Data = {
   id: number;

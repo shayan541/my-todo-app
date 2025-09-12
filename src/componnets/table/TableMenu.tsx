@@ -27,7 +27,7 @@ const TableMenu: React.FC<{ editHandler: () => void; deleteHandler: () => void }
       </div>
       <div
         tabIndex={0}
-        className={`absolute top-8 right-0 menu-container min-w-[100px] min-h-[80px] bg-white border border-gray-200 shadow z-50 rounded ${
+        className={`absolute top-4 right-6 menu-container min-h-[80px] min-w-[100px] bg-white border border-gray-200 shadow z-50 rounded ${
           showMenu ? "block" : "hidden"
         }`}
       >
