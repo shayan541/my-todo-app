@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import type { Data } from "../../../types/table";
 import FormItem from "./FormItem";
+// import DropDown from "../DropDown";
 
 const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (data: Data) => void }> = ({ onSubmit, onEdit, data }) => {
   const {
@@ -54,6 +55,7 @@ const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (da
         type="number"
         value={data?.priority}
       />
+      {/* <DropDown onChange={} options={["High", "Medium", "Low"]} value={} /> */}
       <FormItem
         errorMsg="Completed is required"
         label="Completed"

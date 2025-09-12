@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../ui/Button";
-import ConfirmModal from "../ui/ConfirmModal";
-import FormModal from "../ui/FormModal";
+import ConfirmModal from "../ui/modals/ConfirmModal";
+import FormModal from "../ui/modals/FormModal";
 import type { Data } from "../../types/table";
 import Table from "../table/Table";
 
@@ -57,7 +57,7 @@ const TodoList = () => {
           <Button onClick={() => setShowFormModal(true)}> add new task</Button>
         </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-12 mb-36">
         <Table
           columns={columns}
           data={tasks}

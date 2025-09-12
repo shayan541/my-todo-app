@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from "../ui/DropDown";
 
 const Pagination: React.FC<{
   rowsPerPageOptions?: number[];
@@ -11,22 +12,16 @@ const Pagination: React.FC<{
 }> = ({ rowsPerPageOptions, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage, goToPage, totalPages }) => {
   return (
     <div className="flex justify-between flex-row-reverse mt-4">
-      <div>
+      <div className="flex items-center">
         <label className="mr-2 text-sm">Rows per page:</label>
-        <select
-          className="border rounded px-2 py-1 shadow"
+        <DropDown
           value={rowsPerPage}
-          onChange={(e) => {
-            setRowsPerPage(Number(e.target.value));
+          options={rowsPerPageOptions!}
+          onChange={(val) => {
+            setRowsPerPage(Number(val));
             setCurrentPage(1); // return to first page after number of rows per page changed
           }}
-        >
-          {rowsPerPageOptions!.map((n) => (
-            <option key={n} value={n}>
-              {n}
-            </option>
-          ))}
-        </select>
+        />
       </div>
       <div className="flex items-center space-x-2">
         <button
