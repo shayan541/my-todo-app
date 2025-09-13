@@ -10,7 +10,6 @@ import { useSnackbarContext } from "../../store/context/SnackbarContext";
 import { columns } from "../../utils/constants";
 import FormModal from "../common/FormModal";
 
-
 const TodoList = () => {
   const tasks = useSelector((state: RootState) => state.todo.tasks);
   const dispatch = useDispatch<AppDispatch>();
@@ -47,7 +46,7 @@ const TodoList = () => {
   return (
     <div className="mt-8">
       <div className="flex justify-between flex-wrap items-center font-bold gap-3">
-        <h2 className="uppercase">to do list</h2>
+        <h2 className="uppercase text-black">to do list</h2>
         <div className="flex flex-row-reverse">
           <Button onClick={() => setShowFormModal(true)}> add new task</Button>
         </div>
