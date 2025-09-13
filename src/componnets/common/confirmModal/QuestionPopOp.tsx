@@ -10,7 +10,7 @@ const QuestionPopOp: React.FC<QuestionPopOpType> = ({ cancelHandler, question, t
       <p className="mt-2">{question}</p>
       <div className="flex mt-2 gap-2">
         <Button onClick={yesHandler}>Yes</Button>
-        <Button onClick={cancelHandler}>Cancel</Button>
+        <Button onClick={cancelHandler} className="bg-red-600">Cancel</Button>
       </div>
     </div>
   );
