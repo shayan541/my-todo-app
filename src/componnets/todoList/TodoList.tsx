@@ -1,50 +1,40 @@
 import { useState } from "react";
-import Button from "./ui/Button";
-import ConfirmModal from "./ui/modals/ConfirmModal";
-import FormModal from "./ui/modals/FormModal";
-import type { Data } from "../types/table";
-import Table from "./table/Table";
-import { useSnackbarContext } from "./store/SnackbarContext";
+import Button from "../ui/Button";
+import ConfirmModal from "../ui/modals/ConfirmModal";
+import FormModal from "../ui/modals/FormModal";
+import type { Data } from "../../types/table";
+import Table from "../table/Table";
+import { useSnackbarContext } from "../../store/context/SnackbarContext";
+import { columns } from "../../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../store/redux";
+import { addTask, deleteTask, editTask } from "../../store/redux/todoSlice";
 
 const TodoList = () => {
-  const localData = localStorage.getItem("tasks");
-  const data: Data[] = localData ? JSON.parse(localData) : [];
-  const [tasks, setTasks] = useState(data);
+  const tasks = useSelector((state: RootState) => state.todo.tasks);
+  const dispatch = useDispatch<AppDispatch>();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const [showEditFormModal, setShowEditFormModal] = useState(false);
   const [selectedTaskId, setSelectedTaskId] = useState<null | number>();
   const [selectedDataIndex, setSelectedDataIndex] = useState<null | number>();
-  const columns: string[] = ["ID", "Title", "Category", "Completed", "Priority", ""];
   const { showSnackbar } = useSnackbarContext();
 
-  const addNewTaskHandler = (data: Data) => {
-    setTasks((prev) => {
-      const newId = prev.length > 0 ? Math.max(...prev.map((t) => Number(t.id))) + 1 : 1;
-      const newTasks = [...prev, { ...data, id: newId }];
-      localStorage.setItem("tasks", JSON.stringify(newTasks));
-      return newTasks;
-    });
+  const addNewTaskHandler = (task: Omit<Data, "id">) => {
+    dispatch(addTask(task));
     setShowFormModal(false);
     showSnackbar("Task Added Successfully.", false);
   };
 
-  const editHandler = (data: Data) => {
-    const copiedArray = [...tasks];
-    copiedArray[selectedDataIndex!] = data;
-    localStorage.setItem("tasks", JSON.stringify(copiedArray));
-    setTasks(copiedArray);
+  const editHandler = (task: Data) => {
+    dispatch(editTask(task));
     setShowEditFormModal(false);
     showSnackbar("Task Edited Successfully.", false);
   };
 
   const deleteRow = (id: number) => {
+    dispatch(deleteTask(id));
     setShowDeleteModal(false);
-    const newArray = [...tasks];
-    const targetIndex = tasks.findIndex((task) => task.id === id);
-    newArray.splice(targetIndex, 1);
-    localStorage.setItem("tasks", JSON.stringify(newArray));
-    setTasks(newArray);
     showSnackbar("Task Deleted Successfully.", false);
   };
   const editRow = (id: number) => {

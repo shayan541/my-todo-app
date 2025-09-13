@@ -7,7 +7,7 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div className="min-h-screen ">
       <Header />
-      <main className="max-w-[1440px] mx-auto flex-1 px-4">{children}</main>
+      <main className="max-w-[1440px] mx-auto flex-1 px-4 mt-8">{children}</main>
       <Footer />
     </div>
   );

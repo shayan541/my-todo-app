@@ -1,4 +1,4 @@
-import type { FormItemProps } from "../../types/popup";
+import type { FormItemProps } from "../../../types/popup";
 import type { FieldValues } from "react-hook-form";
 
 const FormItem = <T extends FieldValues>({

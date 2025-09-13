@@ -3,12 +3,14 @@ export interface TableProps {
   data: Data[];
   editHandler: (id: number) => void;
   deleteHandler: (id: number) => void;
-  rowsPerPageOptions?: number[];
 }
+export type Category = "Personal" | "Work" | "Shopping";
+export type Priority = "High" | "Medium" | "Low";
+
 export type Data = {
   id: number;
   title: string;
-  category: "Personal" | "Work" | "Shopping";
-  priority?: "High" | "Medium" | "Low";
+  category: Category;
+  priority?: Priority;
   completed: boolean;
 };

@@ -1,11 +1,11 @@
-import TodoList from "../TodoList";
+import TodoList from "../todoList/TodoList";
 
 const Home = () => {
   return (
-    <>
-      <h1 className="mt-8">Home</h1>
+    <div>
+      <h1>Home</h1>
       <TodoList />
-    </>
+    </div>
   );
 };
 
