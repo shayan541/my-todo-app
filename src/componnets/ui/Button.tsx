@@ -5,11 +5,9 @@ const Button: React.FC<ButtonProps> = ({ variant = "primary", className, childre
   return (
     //  This button has two possible states primary and secondery
     <button
-      className={`py-2.5 overflow-hidden rounded-sm font-medium  cursor-pointer relative  ${
-        variant === "primary" ? " px-4 bg-gold-200 bg-opacity-90 text-white hover:bg-opacity-100 hover:text-black" : ""
-      } ${variant === "secondary" ? "md:px-28 px-4 text-green-300 border border-green-300 hover:text-black" : ""}  ${
-        className ?? className
-      }`}
+      className={` overflow-hidden rounded-sm font-medium  cursor-pointer relative px-4 ${
+        variant === "primary" ? "py-2.5 bg-gold-200 bg-opacity-90 text-white hover:bg-opacity-100 hover:text-black" : ""
+      } ${variant === "secondary" ? " text-gold-200 border bg-white border-gold-200 hover:text-white hover:bg-gold-200" : ""}  ${className ?? className}`}
       {...props}
     >
       <span className="font-bold"> {children}</span>

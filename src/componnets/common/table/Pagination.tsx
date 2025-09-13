@@ -18,6 +18,7 @@ const Pagination: React.FC<{
           disabled={currentPage === 1}
           onClick={() => goToPage(currentPage - 1)}
           className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gold-200 cursor-pointer text-white bg-gold-100"
+          variant="secondary"
         >
           Prev
         </Button>
@@ -28,6 +29,7 @@ const Pagination: React.FC<{
           className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gold-200 cursor-pointer text-white bg-gold-100"
           disabled={currentPage === totalPages}
           onClick={() => goToPage(currentPage + 1)}
+          variant="secondary"
         >
           Next
         </Button>
