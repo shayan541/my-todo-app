@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import Button from "../ui/Button";
-import ConfirmModal from "../ui/modals/ConfirmModal";
-import FormModal from "../ui/modals/FormModal";
-import type { Data } from "../../types/table";
-import Table from "../table/Table";
+import { useState } from "react";
+import Button from "./ui/Button";
+import ConfirmModal from "./ui/modals/ConfirmModal";
+import FormModal from "./ui/modals/FormModal";
+import type { Data } from "../types/table";
+import Table from "./table/Table";
+import { useSnackbarContext } from "./store/SnackbarContext";
 
 const TodoList = () => {
   const localData = localStorage.getItem("tasks");
@@ -15,6 +16,7 @@ const TodoList = () => {
   const [selectedTaskId, setSelectedTaskId] = useState<null | number>();
   const [selectedDataIndex, setSelectedDataIndex] = useState<null | number>();
   const columns: string[] = ["ID", "Title", "Category", "Completed", "Priority", ""];
+  const { showSnackbar } = useSnackbarContext();
 
   const addNewTaskHandler = (data: Data) => {
     setTasks((prev) => {
@@ -24,6 +26,7 @@ const TodoList = () => {
       return newTasks;
     });
     setShowFormModal(false);
+    showSnackbar("Task Added Successfully.", false);
   };
 
   const editHandler = (data: Data) => {
@@ -32,6 +35,7 @@ const TodoList = () => {
     localStorage.setItem("tasks", JSON.stringify(copiedArray));
     setTasks(copiedArray);
     setShowEditFormModal(false);
+    showSnackbar("Task Edited Successfully.", false);
   };
 
   const deleteRow = (id: number) => {
@@ -41,9 +45,9 @@ const TodoList = () => {
     newArray.splice(targetIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(newArray));
     setTasks(newArray);
+    showSnackbar("Task Deleted Successfully.", false);
   };
   const editRow = (id: number) => {
-    console.log(id);
     const targetTask = tasks.findIndex((task) => task.id === id);
     setSelectedDataIndex(targetTask);
     setShowEditFormModal(true);
@@ -51,7 +55,7 @@ const TodoList = () => {
 
   return (
     <div className="mt-8">
-      <div className="flex justify-between flex-wrap items-center font-bold">
+      <div className="flex justify-between flex-wrap items-center font-bold gap-3">
         <h2 className="uppercase">to do list</h2>
         <div className="flex flex-row-reverse">
           <Button onClick={() => setShowFormModal(true)}> add new task</Button>
@@ -68,7 +72,7 @@ const TodoList = () => {
           editHandler={editRow}
         />
       </div>
-
+      {/* this modal is for deleting */}
       <ConfirmModal
         cancelHandler={() => setShowDeleteModal(false)}
         yesHandler={() => {
@@ -79,7 +83,9 @@ const TodoList = () => {
         isShown={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
       />
+      {/* this modal is for adding new task */}
       <FormModal isShown={showFormModal} onSubmit={addNewTaskHandler} onClose={() => setShowFormModal(false)} />
+      {/* this modal is for editing */}
       <FormModal
         isShown={showEditFormModal}
         onSubmit={addNewTaskHandler}

@@ -3,6 +3,7 @@ import type { QuestionPopOpType } from "../../types/popup";
 import Button from "./Button";
 
 const QuestionPopOp: React.FC<QuestionPopOpType> = ({ cancelHandler, question, title, yesHandler }) => {
+  // by using this component we can ask a question from client and give two options (yes or cancel)
   return (
     <div className="bg-white rounded border border-gold-200 shadow py-8 px-6">
       <h2 className="font-bold">{title}</h2>

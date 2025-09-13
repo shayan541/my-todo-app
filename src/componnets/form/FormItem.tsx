@@ -1,4 +1,4 @@
-import type { FormItemProps } from "../../../types/popup";
+import type { FormItemProps } from "../../types/popup";
 import type { FieldValues } from "react-hook-form";
 
 const FormItem = <T extends FieldValues>({
@@ -11,6 +11,7 @@ const FormItem = <T extends FieldValues>({
   required,
   type,
   value,
+  className,
 }: FormItemProps<T>) => {
   const getInputValue = (val: unknown, type: string) => {
     if (type === "checkbox") return undefined;
@@ -18,7 +19,7 @@ const FormItem = <T extends FieldValues>({
     if (typeof val === "string") return val;
   };
   return (
-    <div className="mb-4">
+    <div className={`mb-4 ${className}`}>
       <label htmlFor={id as string} className="block mb-1 font-medium">
         {label}:
       </label>
@@ -41,6 +42,7 @@ const FormItem = <T extends FieldValues>({
           "
         />
       )}
+      {/* error message */}
       {errors?.[id] && <span className="text-red-700 text-sm mt-1 block">{errorMsg}</span>}
     </div>
   );

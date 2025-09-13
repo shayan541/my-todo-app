@@ -16,24 +16,32 @@ const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler
     else if (page > totalPages) page = totalPages;
     setCurrentPage(page);
   };
+
   return (
     <div>
-      <table className="w-full border-collapse table-fixed">
-        <thead>
-          <tr className="bg-[#b29b66] rounded">
-            {columns.map((col) => (
-              <th key={col} className="border-b py-4 text-sm font-semibold text-gray tracking-wider text-left pl-4 ">
-                {col}
-              </th>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse table-fixed min-w-[600px] mb-20">
+          <thead>
+            <tr className=" rounded">
+              {columns.map((col, i) => (
+                <th
+                  key={col}
+                  className={`border-b py-4 text-sm font-semibold text-gray tracking-wider text-left pl-4 bg-[#b29b66] ${
+                    i == 0 ? "sticky left-0 z-20 " : ""
+                  }`}
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {displayedData.map((task) => (
+              <Row task={task} key={task.id} deleteHandler={deleteHandler} editHandler={editHandler} />
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {displayedData.map((task) => (
-            <Row task={task} key={task.id} deleteHandler={deleteHandler} editHandler={editHandler} />
-          ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
       {/*pagination */}
       <Pagination
         rowsPerPageOptions={rowsPerPageOptions}

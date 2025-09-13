@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import type { DropDownProps } from "../../types/inputs";
 
-const DropDown: React.FC<{ options: string[] | number[]; onChange: (val: string | number) => void; value: string | number }> = ({
-  options,
-  onChange,
-  value
-}) => {
+const DropDown = <T extends string | number>({ options, onChange, value }: DropDownProps<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectedOption, setSelectedOption] = useState(value);
   return (
@@ -36,10 +33,10 @@ const DropDown: React.FC<{ options: string[] | number[]; onChange: (val: string 
           <FontAwesomeIcon icon={faChevronDown} className={`text-[11px] duration-150 ${showOptions ? "rotate-180 " : ""}`} />
         </div>
       </div>
-      <ul className={`absolute top-12 left-0 option-container border rounded ${showOptions ? "block" : "hidden"}`}>
+      <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 ${showOptions ? "block" : "hidden"}`}>
         {options.map((option) => (
           <li
-            className="py-2 hover:bg-gold-100 min-w-20 pl-2"
+            className="py-2 hover:bg-gold-100 min-w-20 pl-2 cursor-pointer"
             key={option}
             onClick={() => {
               setSelectedOption(option);

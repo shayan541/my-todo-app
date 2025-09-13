@@ -31,6 +31,7 @@ export interface FormItemProps<T extends FieldValues> {
   required: boolean;
   type: "text" | "number" | "checkbox";
   value?: string | boolean;
+  className?: string;
 }
 
 export interface ModalProps {
