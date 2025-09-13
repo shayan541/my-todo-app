@@ -36,7 +36,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
       <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 w-full ${showOptions ? "block" : "hidden"}`}>
         {options.map((option) => (
           <li
-            className="py-2 hover:bg-gold-100 min-w-20 pl-2 cursor-pointer"
+            className="py-2 hover:bg-gold-100 min-w-20 pl-2 cursor-pointer text-black"
             key={option}
             onClick={() => {
               setSelectedOption(option);
