@@ -1,5 +1,6 @@
 import React from "react";
-import type { ModalProps } from "../../../types/popup";
+import type { ModalProps } from "../../types/popup";
+
 
 const Modal: React.FC<ModalProps> = ({ children, isShown, onClose }) => {
   return (
