@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 import ConfirmModal from "../ui/modals/ConfirmModal";
 import FormModal from "../ui/modals/FormModal";
 import type { Data } from "../../types/table";
-import Table from "../table/Table";
+import Table from "./table/Table";
 import { useSnackbarContext } from "../../store/context/SnackbarContext";
 import { columns } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";

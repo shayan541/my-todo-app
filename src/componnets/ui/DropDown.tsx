@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import type { DropDownProps } from "../../types/inputs";
+import type { DropDownProps } from "../../types/input";
 
 const DropDown = <T extends string | number>({ options, onChange, value }: DropDownProps<T>) => {
   const [showOptions, setShowOptions] = useState(false);
