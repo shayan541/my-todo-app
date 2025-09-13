@@ -30,7 +30,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
       <div className="flex justify-between">
         <div className="text-black">{selectedOption}</div>
         <div>
-          <FontAwesomeIcon icon={faChevronDown} className={`text-[11px] duration-150 ${showOptions ? "rotate-180 " : ""}`} />
+          <FontAwesomeIcon icon={faChevronDown} className={`text-[11px] text-black duration-150 ${showOptions ? "rotate-180 " : ""}`} />
         </div>
       </div>
       <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 w-full ${showOptions ? "block" : "hidden"}`}>
