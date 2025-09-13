@@ -8,7 +8,7 @@ import type { Data } from "../../types/table";
 import Table from "../common/table/Table";
 import { useSnackbarContext } from "../../store/context/SnackbarContext";
 import { columns } from "../../utils/constants";
-import FormModal from "../common/FormModal";
+import FormModal from "./form/FormModal";
 
 const TodoList = () => {
   const tasks = useSelector((state: RootState) => state.todo.tasks);
