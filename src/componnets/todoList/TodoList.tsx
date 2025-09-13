@@ -48,7 +48,7 @@ const TodoList = () => {
       <div className="flex justify-between flex-wrap items-center font-bold gap-3">
         <h2 className="uppercase text-black">to do list</h2>
         <div className="flex flex-row-reverse">
-          <Button onClick={() => setShowFormModal(true)}> add new task</Button>
+          <Button onClick={() => setShowFormModal(true)}> Add New Task</Button>
         </div>
       </div>
       <div className="mt-12 mb-36">

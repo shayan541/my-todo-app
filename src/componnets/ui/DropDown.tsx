@@ -25,7 +25,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
       onClick={() => {
         setShowOptions(!showOptions);
       }}
-      className="border p-2 min-w-20 relative rounded"
+      className="border p-2 min-w-20 relative rounded focus:border-gold-200 focus:border-[3px]"
     >
       <div className="flex justify-between">
         <div className="text-black">{selectedOption}</div>
@@ -33,7 +33,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
           <FontAwesomeIcon icon={faChevronDown} className={`text-[11px] text-black duration-150 ${showOptions ? "rotate-180 " : ""}`} />
         </div>
       </div>
-      <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 w-full ${showOptions ? "block" : "hidden"}`}>
+      <ul className={`absolute top-43 left-0 option-container border rounded bg-white z-20 w-full overflow-hidden ${showOptions ? "block" : "hidden"}`}>
         {options.map((option) => (
           <li
             className="py-2 hover:bg-gold-100 min-w-20 pl-2 cursor-pointer text-black"

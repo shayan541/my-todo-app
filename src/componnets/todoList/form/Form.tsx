@@ -46,7 +46,7 @@ const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (da
         rules={{ required: "Category is required" }}
         render={({ field }) => <DropDown options={categories} value={field.value!} onChange={field.onChange} />}
       />
-      <label htmlFor="" className="block mb-1 font-medium">
+      <label htmlFor="" className="block mb-1 font-medium mt-4">
         Priority:
       </label>
       <Controller
