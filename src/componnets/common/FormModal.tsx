@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "./Modal";
-import type { FormModalProps } from "../../../types/popup";
-import Form from "../../todoList/form/Form";
+import type { FormModalProps } from "../../types/popup";
+import Modal from "../ui/Modal";
+import Form from "../todoList/form/Form";
 
 const FormModal: React.FC<FormModalProps> = ({ isShown, onSubmit, onEdit, onClose, data }) => {
   return (
