@@ -11,7 +11,7 @@ const Pagination: React.FC<{
   totalPages: number;
 }> = ({ rowsPerPageOptions, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage, goToPage, totalPages }) => {
   return (
-    <div className="flex justify-between mt-4 flex-wrap gap-10">
+    <div className="flex md:justify-between justify-center mt-4 flex-wrap gap-10">
       <div className="flex items-center space-x-2">
         <button
           className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gold-200 cursor-pointer text-white bg-gold-100"
@@ -20,7 +20,7 @@ const Pagination: React.FC<{
         >
           Prev
         </button>
-        <span className="text-sm">
+        <span className="text-sm text-black">
           Page {currentPage} of {totalPages}
         </span>
         <button
@@ -31,7 +31,7 @@ const Pagination: React.FC<{
           Next
         </button>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center relative z-20">
         <label className="mr-2 text-sm text-black">Rows per page:</label>
         <DropDown
           value={rowsPerPage}
