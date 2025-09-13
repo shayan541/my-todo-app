@@ -27,7 +27,7 @@ const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler
   return (
     <div>
       {displayedData.length === 0 ? (
-        <p className="text-center">database is empty please add new tasks first.</p>
+        <p className="text-center text-black">database is empty please add new tasks first.</p>
       ) : (
         <div>
           <div className="overflow-x-auto">

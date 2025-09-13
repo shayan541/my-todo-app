@@ -29,7 +29,7 @@ const FormItem = <T extends FieldValues>({
           id={id as string}
           {...register(id, { required })}
           defaultChecked={Boolean(value)}
-          className="h-4 w-4 border-gray-300 rounded focus:ring-2 focus:ring-gold-200 outline-0"
+          className="h-4 w-4 border-gray-300 rounded focus:ring-2 focus:ring-gold-200 outline-0 bg-white text-black"
         />
       ) : (
         <input
@@ -38,7 +38,7 @@ const FormItem = <T extends FieldValues>({
           {...register(id, { required })}
           defaultValue={getInputValue(value, type)}
           placeholder={placeholder}
-          className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gold-200 outline-0
+          className="w-full border bg-white text-black border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gold-200 outline-0
           "
         />
       )}
