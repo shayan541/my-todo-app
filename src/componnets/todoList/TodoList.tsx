@@ -1,14 +1,15 @@
 import { useState } from "react";
-import Button from "../ui/Button";
-import ConfirmModal from "../ui/modals/ConfirmModal";
-import FormModal from "../ui/modals/FormModal";
-import type { Data } from "../../types/table";
-import Table from "./table/Table";
-import { useSnackbarContext } from "../../store/context/SnackbarContext";
-import { columns } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../store/redux";
 import { addTask, deleteTask, editTask } from "../../store/redux/todoSlice";
+import Button from "../ui/Button";
+import ConfirmModal from "../common/confirmModal/ConfirmModal";
+import type { Data } from "../../types/table";
+import Table from "../common/table/Table";
+import { useSnackbarContext } from "../../store/context/SnackbarContext";
+import { columns } from "../../utils/constants";
+import FormModal from "../common/FormModal";
+
 
 const TodoList = () => {
   const tasks = useSelector((state: RootState) => state.todo.tasks);

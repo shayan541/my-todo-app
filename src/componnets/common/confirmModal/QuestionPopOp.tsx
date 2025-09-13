@@ -1,6 +1,6 @@
 import React from "react";
-import type { QuestionPopOpType } from "../../types/popup";
-import Button from "./Button";
+import type { QuestionPopOpType } from "../../../types/popup";
+import Button from "../../ui/Button";
 
 const QuestionPopOp: React.FC<QuestionPopOpType> = ({ cancelHandler, question, title, yesHandler }) => {
   // by using this component we can ask a question from client and give two options (yes or cancel)
