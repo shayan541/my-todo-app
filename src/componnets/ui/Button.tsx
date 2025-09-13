@@ -7,7 +7,7 @@ const Button: React.FC<ButtonProps> = ({ variant = "primary", className, childre
     <button
       className={` overflow-hidden rounded-sm font-medium  cursor-pointer relative px-4 ${
         variant === "primary" ? "py-2.5 bg-gold-200 bg-opacity-90 text-white hover:bg-opacity-100 hover:text-black" : ""
-      } ${variant === "secondary" ? " text-gold-200 border bg-white border-gold-200 hover:text-white hover:bg-gold-200" : ""}  ${className ?? className}`}
+      } ${variant === "secondary" ? " text-black border bg-white border-gold-200 hover:text-white hover:bg-gold-200" : ""}  ${className ?? className}`}
       {...props}
     >
       <span className="font-bold"> {children}</span>
