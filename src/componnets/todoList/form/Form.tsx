@@ -1,9 +1,10 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import type { Data } from "../../types/table";
+import type { Data } from "../../../types/table";
 import FormItem from "./FormItem";
-import DropDown from "../ui/DropDown";
-import Button from "../ui/Button";
+import DropDown from "../../ui/DropDown";
+import Button from "../../ui/Button";
+import { categories, priority } from "../../../utils/constants";
 
 const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (data: Data) => void }> = ({ onSubmit, onEdit, data }) => {
   const {
@@ -43,7 +44,7 @@ const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (da
         control={control}
         defaultValue="Personal"
         rules={{ required: "Category is required" }}
-        render={({ field }) => <DropDown options={["Personal", "Work", "Shopping"]} value={field.value!} onChange={field.onChange} />}
+        render={({ field }) => <DropDown options={categories} value={field.value!} onChange={field.onChange} />}
       />
       <label htmlFor="" className="block mb-1 font-medium">
         Priority:
@@ -53,7 +54,7 @@ const Form: React.FC<{ onSubmit: (data: Data) => void; data?: Data; onEdit?: (da
         control={control}
         defaultValue="High"
         rules={{ required: "Priority is required" }}
-        render={({ field }) => <DropDown options={["High", "Medium", "Low"]} value={field.value!} onChange={field.onChange} />}
+        render={({ field }) => <DropDown options={priority} value={field.value!} onChange={field.onChange} />}
       />
       <FormItem
         errorMsg="Completed is required"
