@@ -19,7 +19,7 @@ const FormItem = <T extends FieldValues>({
     if (typeof val === "string") return val;
   };
   return (
-    <div className={`mb-4 ${className}`}>
+    <div className={`mb-4 ${className} ${type === "checkbox" ? "flex gap-2 items-center" : ""}`}>
       <label htmlFor={id as string} className="block mb-1 font-medium">
         {label}:
       </label>

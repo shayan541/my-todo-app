@@ -1,5 +1,5 @@
 import React from "react";
-import DropDown from "../ui/DropDown";
+import DropDown from "../../ui/DropDown";
 
 const Pagination: React.FC<{
   rowsPerPageOptions?: number[];

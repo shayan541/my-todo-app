@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import type { DropDownProps } from "../../types/inputs";
+import type { DropDownProps } from "../../types/input";
 
 const DropDown = <T extends string | number>({ options, onChange, value }: DropDownProps<T>) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -33,7 +33,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
           <FontAwesomeIcon icon={faChevronDown} className={`text-[11px] duration-150 ${showOptions ? "rotate-180 " : ""}`} />
         </div>
       </div>
-      <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 ${showOptions ? "block" : "hidden"}`}>
+      <ul className={`absolute top-12 left-0 option-container border rounded bg-white z-20 w-full ${showOptions ? "block" : "hidden"}`}>
         {options.map((option) => (
           <li
             className="py-2 hover:bg-gold-100 min-w-20 pl-2 cursor-pointer"

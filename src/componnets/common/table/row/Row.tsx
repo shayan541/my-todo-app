@@ -1,5 +1,5 @@
 import React from "react";
-import type { Data } from "../../../types/table";
+import type { Data } from "../../../../types/table";
 import TableMenu from "../TableMenu";
 import RowItem from "./RowItem";
 

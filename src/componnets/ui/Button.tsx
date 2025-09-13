@@ -1,5 +1,5 @@
 import React from "react";
-import type { ButtonProps } from "../../types/inputs";
+import type { ButtonProps } from "../../types/input";
 
 const Button: React.FC<ButtonProps> = ({ variant = "primary", className, children, ...props }) => {
   return (

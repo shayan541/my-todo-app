@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import type { TableProps } from "../../types/table";
+import type { TableProps } from "../../../types/table";
 import Row from "./row/Row";
 import Pagination from "./Pagination";
-import { rowsPerPageOptionsConstant } from "../../utils/constants";
+import { rowsPerPageOptionsConstant } from "../../../utils/constants";
 
 const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,7 +37,7 @@ const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler
                   {columns.map((col, i) => (
                     <th
                       key={col}
-                      className={`border-b py-4 text-sm font-semibold text-gray tracking-wider text-left pl-4 bg-[#b29b66] ${
+                      className={`border-b py-4 text-sm font-bold text-gray tracking-wider text-left pl-4 bg-[#b29b66] ${
                         i == 0 ? "sticky left-0 z-20 " : ""
                       }`}
                     >
