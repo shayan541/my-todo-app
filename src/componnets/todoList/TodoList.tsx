@@ -46,9 +46,9 @@ const TodoList = () => {
   return (
     <div className="mt-8">
       <div className="flex justify-between flex-wrap items-center font-bold gap-3">
-        <h2 className="uppercase text-black">to do list</h2>
+        <h2 className=" text-black">To do list</h2>
         <div className="flex flex-row-reverse">
-          <Button onClick={() => setShowFormModal(true)}> Add New Task</Button>
+          <Button onClick={() => setShowFormModal(true)}> Add new task</Button>
         </div>
       </div>
       <div className="mt-12 mb-36">
@@ -68,7 +68,7 @@ const TodoList = () => {
         yesHandler={() => {
           deleteRow(selectedTaskId!);
         }}
-        question="Do You Really Want To Remove This Task ?"
+        question="Do you really want yo remove this task ?"
         title="Delete"
         isShown={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}

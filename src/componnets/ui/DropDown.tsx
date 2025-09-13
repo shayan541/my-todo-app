@@ -25,7 +25,7 @@ const DropDown = <T extends string | number>({ options, onChange, value }: DropD
       onClick={() => {
         setShowOptions(!showOptions);
       }}
-      className="border p-2 min-w-20 relative rounded focus:border-gold-200 focus:border-[3px]"
+      className="border p-2 min-w-20 relative rounded focus:border-gold-200 focus:border-[2px]"
     >
       <div className="flex justify-between">
         <div className="text-black">{selectedOption}</div>

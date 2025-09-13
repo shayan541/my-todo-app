@@ -32,7 +32,7 @@ const Pagination: React.FC<{
           Next
         </Button>
       </div>
-      <div className="flex items-center relative z-20">
+      <div className="flex items-center relative z-20 h-45">
         <label className="mr-2 text-sm text-black">Rows per page:</label>
         <DropDown
           value={rowsPerPage}

@@ -7,6 +7,7 @@ const TableMenu: React.FC<{ editHandler: () => void; deleteHandler: () => void }
       <div
         tabIndex={0}
         onBlur={(e) => {
+          // if mouse focused on this element return to avoid of closing the popup
           const nextFocus = e.relatedTarget as HTMLElement | null;
           if (nextFocus?.closest(".menu-container")) {
             return;

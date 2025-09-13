@@ -26,6 +26,7 @@ const Table: React.FC<TableProps> = ({ columns, data, deleteHandler, editHandler
 
   return (
     <div>
+      {/* when database is empty shows this message */}
       {displayedData.length === 0 ? (
         <p className="text-center text-black">database is empty please add new tasks first.</p>
       ) : (
