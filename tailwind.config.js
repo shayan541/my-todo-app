@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       spacing:{
-        '43':'43px'
+        '43':'43px',
+        '45':'45px'
       },
       colors:{
         gold:{
