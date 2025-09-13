@@ -20,7 +20,7 @@ const FormItem = <T extends FieldValues>({
   };
   return (
     <div className={`mb-4 ${className} ${type === "checkbox" ? "flex gap-2 items-center" : ""}`}>
-      <label htmlFor={id as string} className="block mb-1 font-medium">
+      <label htmlFor={id as string} className="block mb-1 font-medium text-black">
         {label}:
       </label>
       {type === "checkbox" ? (
