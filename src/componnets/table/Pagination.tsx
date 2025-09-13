@@ -1,0 +1,49 @@
+import React from "react";
+import DropDown from "../ui/DropDown";
+
+const Pagination: React.FC<{
+  rowsPerPageOptions?: number[];
+  rowsPerPage: number;
+  setRowsPerPage: (i: number) => void;
+  setCurrentPage: (i: number) => void;
+  goToPage: (page: number) => void;
+  currentPage: number;
+  totalPages: number;
+}> = ({ rowsPerPageOptions, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage, goToPage, totalPages }) => {
+  return (
+    <div className="flex justify-between mt-4 flex-wrap gap-10">
+      <div className="flex items-center space-x-2">
+        <button
+          className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gold-100 cursor-pointer"
+          disabled={currentPage === 1}
+          onClick={() => goToPage(currentPage - 1)}
+        >
+          Prev
+        </button>
+        <span className="text-sm">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          className="px-2 py-1 border rounded disabled:opacity-50 hover:bg-gold-100 cursor-pointer"
+          disabled={currentPage === totalPages}
+          onClick={() => goToPage(currentPage + 1)}
+        >
+          Next
+        </button>
+      </div>
+      <div className="flex items-center">
+        <label className="mr-2 text-sm">Rows per page:</label>
+        <DropDown
+          value={rowsPerPage}
+          options={rowsPerPageOptions!}
+          onChange={(val) => {
+            setRowsPerPage(Number(val));
+            setCurrentPage(1); // return to first page after number of rows per page changed
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Pagination;
